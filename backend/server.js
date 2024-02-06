@@ -6,6 +6,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const workoutRoutes = require("./routes/workout");
+const IrcRoutes = require("./routes/irc");
 
 // Middleware
 
@@ -17,7 +18,8 @@ app.use((req, res, next) => {
 });
 
 // Routes
-app.use("/api/workout", workoutRoutes);
+app.use("/api/workouts", workoutRoutes);
+app.use("/chat/", IrcRoutes);
 
 // Connect to MongoDB
 mongoose

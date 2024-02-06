@@ -1,43 +1,20 @@
-import React, { useState, useEffect } from "react";
-import io from "socket.io-client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-const socket = io("http://localhost:3001"); // Change the URL to match your server
+// Pages and components
+import Home from "./Pages/Home";
+import Navbar from "./components/Navbar";
 
 function App() {
-  const [messages, setMessages] = useState([]);
-  const [message, setMessage] = useState("");
-
-  useEffect(() => {
-    socket.on("chat message", (msg) => {
-      setMessages([...messages, msg]);
-    });
-
-    return () => {
-      socket.disconnect();
-    };
-  }, [messages]);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    socket.emit("chat message", message);
-    setMessage("");
-  };
-
   return (
-    <div>
-      <ul>
-        {messages.map((msg, index) => (
-          <li key={index}>{msg}</li>
-        ))}
-      </ul>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-        />
-        <button type="submit">Send</button>
-      </form>
+    <div className="App">
+      <BrowserRouter>
+        <Navbar />
+        <div className="Pages">
+          <Routes>
+            <Route path="/" element={<Home />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
     </div>
   );
 }

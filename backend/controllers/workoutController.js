@@ -44,10 +44,42 @@ const createWorkout = async (req, res) => {
 
 // delete a workout
 
-// update a workout
+const deleteWorkout = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const workout = await Workout.findByIdAndDelete(id);
+
+    if (!workout) {
+      return res.status(404).json({ message: "Workout not found" });
+    }
+
+    res.status(200).json(workout);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+};
+
+// update a workoutkk
+
+const updateWorkout = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const workout = await Workout.findByIdAndUpdate(id, req.body);
+    if (!workout) {
+      return res.status(404).json({ message: "Workout not found" });
+    }
+    res.status(200).json(workout);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+};
 
 module.exports = {
   getAllWorkouts,
   getWorkoutById,
   createWorkout,
+  deleteWorkout,
+  updateWorkout,
 };
