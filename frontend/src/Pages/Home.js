@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 
 // Components
+import ChatBox from "../components/ChatBox";
+import ChatInput from "../components/ChatInput";
 import WorkoutDetails from "../components/WorkoutDetails";
 
 const Home = () => {
@@ -8,7 +10,7 @@ const Home = () => {
 
   useEffect(() => {
     const fetchWorkouts = async () => {
-      const res = await fetch("/api/workouts");
+      const res = await fetch("/chat/");
       const data = await res.json();
 
       if (res.ok) {
@@ -22,12 +24,9 @@ const Home = () => {
 
   return (
     <div className="home">
-      <div className="workouts">
-        {workouts &&
-          workouts.map((workout) => (
-            <WorkoutDetails key={workout._id} workout={workout} />
-          ))}
-      </div>
+      <ChatBox channelId={1} />
+      <ChatInput />
+      {/* <WorkoutDetails workouts={workouts} /> */}
     </div>
   );
 };

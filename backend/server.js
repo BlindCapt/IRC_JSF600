@@ -18,7 +18,7 @@ app.use((req, res, next) => {
 });
 
 // Routes
-app.use("/api/workouts", workoutRoutes);
+app.use("/api/workout", workoutRoutes);
 app.use("/chat/", IrcRoutes);
 
 // Connect to MongoDB

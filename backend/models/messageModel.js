@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const messageModel = new Schema(
+const messageSchema = new Schema(
   {
     idUser: {
       type: String,
@@ -20,4 +20,4 @@ const messageModel = new Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Message", workoutSchema);
+module.exports = mongoose.model("Message", messageSchema);

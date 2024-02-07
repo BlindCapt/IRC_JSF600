@@ -1,4 +1,4 @@
-const Workout = require("../models/channelModel");
+const Channel = require("../models/channelModel");
 
 // get all channels
 const getAllChannels = async (req, res) => {
@@ -24,11 +24,10 @@ const updateChannel = async (req, res) => {
 
 // create a new channel
 const createChannel = async (req, res) => {
-  const { title, reps, load } = req.body;
+  const { title, description } = req.body;
 
-  // add doc to db
   try {
-    const channel = await Channel.create({ title, reps, load });
+    const channel = await Channel.create({ title, description });
     res.status(200).json(channel);
   } catch (err) {
     res.status(400).json({ error: err.message });

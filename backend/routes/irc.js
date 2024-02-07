@@ -1,10 +1,16 @@
 const express = require("express");
+
+// import controller functions
 const {
   getAllChannels,
   updateChannel,
   createChannel,
   deleteChannel,
 } = require("../controllers/channelController");
+const {
+  getMessages,
+  postMessage,
+} = require("../controllers/messageController");
 
 const router = express.Router();
 
@@ -12,7 +18,16 @@ const router = express.Router();
 
 // GET all user conected to the channel selected
 
+// GET all channels
+router.get("/", getAllChannels);
+
+// GET 500 last message from a chanel
+
+router.get("/getMessage/:channelId", getMessages);
+
 // POST a new message
+
+router.post("/postMessage", postMessage);
 
 // POST a new channel
 router.post("/", createChannel);
