@@ -25,6 +25,9 @@ router.get("/", getAllChannels);
 
 router.get("/getMessage/:channelId", getMessages);
 
+// GET messages
+router.get("/getMessage", getMessages);
+
 // POST a new message
 
 router.post("/postMessage", postMessage);
