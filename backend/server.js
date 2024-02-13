@@ -1,11 +1,18 @@
 require("dotenv").config(); // Load environment variables from .env file
-
-const express = require("express");
+const { Server } = require("socket.io"); // Import socket.io
+const express = require("express"); // Import express
+const { createServer } = require("node:http"); // Import http module
+const cors = require("cors"); // Import the cors middleware
 
 // Express app
 const app = express();
+const server = createServer(app);
 const mongoose = require("mongoose");
-const workoutRoutes = require("./routes/workout");
+const io = new Server(server);
+
+app.use(cors());
+io.use(cors()); // Use cors middleware to allow all origins
+
 const IrcRoutes = require("./routes/irc");
 
 // Middleware
@@ -18,8 +25,20 @@ app.use((req, res, next) => {
 });
 
 // Routes
-app.use("/api/workout", workoutRoutes);
 app.use("/chat/", IrcRoutes);
+
+// Socket.io
+io.on("connection", (socket) => {
+  console.log("a user connected");
+
+  socket.on("disconnect", () => {
+    console.log("user disconnected");
+  });
+
+  socket.on("chat message", (msg) => {
+    io.emit("chat message", msg); // Broadcast the message to all connected clients
+  });
+});
 
 // Connect to MongoDB
 mongoose
@@ -28,7 +47,7 @@ mongoose
     console.log("Connected to MongoDB");
 
     // Lisen for requests
-    app.listen(process.env.PORT, () => {
+    server.listen(process.env.PORT, () => {
       console.log(`Server running on http://localhost:${process.env.PORT}`);
     });
   })
