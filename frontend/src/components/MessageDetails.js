@@ -2,7 +2,11 @@ const MessageDetails = ({ message }) => {
   return (
     <div className="message">
       {message.idUser === undefined ? (
-        console.log("commande")
+        message.map((channel) => (
+          <div key={channel._id} className="channelListElem">
+            <b>{channel.title}</b>: {channel.description}{" "}
+          </div>
+        ))
       ) : (
         <div>
           {" "}

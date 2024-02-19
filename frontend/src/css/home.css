@@ -11,3 +11,7 @@
   padding-left: 5px;
   overflow-y: scroll;
 }
+
+.channelListElem {
+  background-color: #878787;
+}

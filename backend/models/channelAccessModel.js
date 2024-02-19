@@ -2,17 +2,17 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema(
+const channelAccessSchema = new Schema(
   {
-    Email: {
+    channel: {
       type: String,
       required: true,
     },
-    Password: {
+    idUser: {
       type: String,
       required: true,
     },
-    CurrentChannel: {
+    nickname: {
       type: String,
       required: false,
     },
@@ -20,4 +20,4 @@ const userSchema = new Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.model("Channel", channelSchema);

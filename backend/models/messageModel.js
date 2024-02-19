@@ -16,6 +16,10 @@ const messageSchema = new Schema(
       type: String,
       required: true,
     },
+    idMP: {
+      type: String,
+      required: false,
+    },
   },
   { timestamps: true }
 );
