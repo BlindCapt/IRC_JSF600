@@ -16,7 +16,16 @@ const userSchema = new Schema(
             required: true,
         },
     },
-    {timestamps: true}
+    Password: {
+      type: String,
+      required: true,
+    },
+    CurrentChannel: {
+      type: String,
+      required: false,
+    },
+  },
+  { timestamps: true }
 );
 
 // static signup method

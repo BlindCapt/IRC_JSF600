@@ -2,21 +2,17 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const messageSchema = new Schema(
+const channelAccessSchema = new Schema(
   {
-    idUser: {
-      type: String,
-      required: true,
-    },
     idChannel: {
       type: String,
       required: true,
     },
-    message: {
+    idUser: {
       type: String,
       required: true,
     },
-    idMP: {
+    nickname: {
       type: String,
       required: false,
     },
@@ -24,4 +20,4 @@ const messageSchema = new Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Message", messageSchema);
+module.exports = mongoose.model("ChannelAccess", channelAccessSchema);
