@@ -1,8 +1,21 @@
+.home {
+  display: flex;
+}
+
+.center-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 60%;
+}
+
 .MessageBox {
   bottom: 0;
   right: 0;
-  width: 50vw;
-  height: 50vh;
+  width: 100%;
+  height: 70vh;
+  border: solid;
   background-color: #ffffff;
   border: 1px solid #000;
   border-radius: 5px;
@@ -12,6 +25,52 @@
   overflow-y: scroll;
 }
 
+.MessageForm {
+  width: 100%;
+}
+
+.MessageForm input {
+  width: 92%;
+  height: 30px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 5px;
+}
+
+.MessageForm button {
+  width: 50px;
+  height: 40px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 5px;
+  background-color: #878787;
+}
+
 .channelListElem {
   background-color: #878787;
+}
+
+.right-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 25%;
+}
+
+.left-div {
+  display: flex;
+  justify-content: left;
+  flex-direction: column;
+  width: 15%;
+}
+
+.serverSideBarClicked {
+  background-color: #878787;
+}
+
+.serverSideBar {
+  background-color: #ffffff;
 }

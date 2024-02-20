@@ -12,6 +12,14 @@ export const messageReducer = (state, action) => {
         messages: action.payload,
       };
 
+    // case "SET_PRIVATE_MESSAGES":
+    //   if (!action.payload.title === undefined) {
+    //     console.log("Receive commande response");
+    //   }
+    //   return {
+    //     privateMessages: action.payload,
+    //   };
+
     case "ADD_MESSAGE":
       return {
         messages: [action.payload, ...state.messages],

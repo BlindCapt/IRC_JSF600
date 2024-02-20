@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const channelAccessSchema = new Schema(
   {
-    channel: {
+    idChannel: {
       type: String,
       required: true,
     },
@@ -20,4 +20,4 @@ const channelAccessSchema = new Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Channel", channelSchema);
+module.exports = mongoose.model("ChannelAccess", channelAccessSchema);

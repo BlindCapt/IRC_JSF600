@@ -3,7 +3,9 @@ const Channel = require("../models/channelModel");
 // get all channels
 const getAllChannels = async (req, res) => {
   try {
-    const channels = await Channel.find({}).sort({ createdAt: -1 });
+    const channels = await Channel.find({
+      $nor: [{ title: "MP" }],
+    }).sort({ createdAt: -1 });
     res.status(200).json(channels);
   } catch (err) {
     res.status(400).json({ error: err.message });
