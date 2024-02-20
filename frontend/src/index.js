@@ -2,13 +2,16 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import { MessagesContextProvider } from "./context/MessageContext";
+import {MessagesContextProvider} from "./context/MessageContext";
+import {AuthContextProvider} from "./context/AuthContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <MessagesContextProvider>
-      <App />
-    </MessagesContextProvider>
-  </React.StrictMode>
+    <React.StrictMode>
+        <AuthContextProvider>
+            <MessagesContextProvider>
+                <App/>
+            </MessagesContextProvider>
+        </AuthContextProvider>
+    </React.StrictMode>
 );
