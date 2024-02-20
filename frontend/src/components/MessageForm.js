@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useMessagesContext } from "../hooks/useMessagesContext";
 
-const MessageForm = () => {
+const MessageForm = ({ activeChannel }) => {
   const { dispatch } = useMessagesContext();
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
@@ -9,7 +9,7 @@ const MessageForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const messageData = { message, idUser: 1, idChannel: 1 };
+    const messageData = { message, idUser: 1, idChannel: activeChannel };
     const response = await fetch("/chat/postMessage", {
       method: "POST",
       body: JSON.stringify(messageData),
