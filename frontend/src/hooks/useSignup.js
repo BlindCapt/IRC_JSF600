@@ -27,7 +27,7 @@ export const useSignup = () => {
       if (response.ok) {
         setIsLoading(false);
         //save token to local storage
-        localStorage.setItem("user", json.email);
+        localStorage.setItem("email", json.email);
         localStorage.setItem("token", json.token);
 
         //update context

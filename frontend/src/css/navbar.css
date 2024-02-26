@@ -16,7 +16,7 @@ header .container-navbar {
   height: 2vh;
 }
 
-header b {
-  margin: 10px;
-  color: #050505;
+.title {
+  color: aliceblue;
+  margin: 5px;
 }

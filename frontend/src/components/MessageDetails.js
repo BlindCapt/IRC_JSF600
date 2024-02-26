@@ -25,7 +25,7 @@ const MessageDetails = ({ message, activeChannel }) => {
         <div>
           {" "}
           (<i> {formatDateToFrenchLocale(message.createdAt)} </i>){" "}
-          <b> {message.idUser} </b> - {message.message}{" "}
+          <b> {localStorage.getItem("email")} </b> - {message.message}{" "}
         </div>
       ) : (
         // place des messages server ?
