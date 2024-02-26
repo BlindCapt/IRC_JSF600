@@ -27,7 +27,7 @@ app.use((req, res, next) => {
 
 // Routes
 app.use("/chat/", IrcRoutes);
-app.use('/user/', userRoutes);
+app.use("/user/", userRoutes);
 
 // Socket.io
 io.on("connection", (socket) => {
@@ -44,7 +44,7 @@ io.on("connection", (socket) => {
 
 // Connect to MongoDB
 mongoose
-  .connect(process.env.MONGODB_URI)
+  .connect(process.env.MONGO_URI)
   .then(() => {
     console.log("Connected to MongoDB");
 
