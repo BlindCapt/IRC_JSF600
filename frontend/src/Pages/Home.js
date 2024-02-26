@@ -65,15 +65,13 @@ const Home = () => {
   // Get accessible channels
   useEffect(() => {
     const fetchChannels = async () => {
-      const response = await fetch(`/chat/getChannels/${1}`);
+      const response = await fetch(
+        `/chat/getChannels/${localStorage.getItem("user")}`
+      );
       const json = await response.json();
 
       if (response.ok) {
         try {
-          if (!json.title === undefined) {
-            console.log("Receive commande response");
-          }
-          console.log("Receive channels response");
           setChannels(json);
         } catch (err) {
           console.log(err);
@@ -103,7 +101,7 @@ const Home = () => {
             <div
               className={
                 serverSideBarClicked === channel._id
-                  ? "serverSideBarClicked"
+                  ? "serverSideBarClicked serverSideBar"
                   : "serverSideBar"
               }
               onClick={() => {

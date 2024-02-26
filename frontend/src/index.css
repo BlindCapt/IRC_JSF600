@@ -9,6 +9,7 @@
 body {
   font-family: Arial, sans-serif;
   background-color: #f1f1f1;
+  background-image: url("/public/background_IRC.svg");
   margin: 0;
   padding: 0;
 }

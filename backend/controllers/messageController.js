@@ -21,7 +21,7 @@ const postMessage = async (req, res) => {
       const channel = await Channel.create({ title: name, description });
       res.status(200).json({
         idUser: req.body.idUser,
-        idChannel: "1",
+        idChannel: channel._id,
         message: "channel created",
       });
     } else if (verifCommand[0] === "/delete") {

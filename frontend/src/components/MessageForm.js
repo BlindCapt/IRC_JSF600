@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useMessagesContext } from "../hooks/useMessagesContext";
 
 const MessageForm = ({ activeChannel }) => {
@@ -9,7 +9,11 @@ const MessageForm = ({ activeChannel }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const messageData = { message, idUser: 1, idChannel: activeChannel };
+    const messageData = {
+      message,
+      idUser: localStorage.getItem("user"),
+      idChannel: activeChannel,
+    };
     const response = await fetch("/chat/postMessage", {
       method: "POST",
       body: JSON.stringify(messageData),

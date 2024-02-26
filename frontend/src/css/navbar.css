@@ -1,7 +1,7 @@
 /* Header */
 header {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: transparent;
+  box-shadow: 0 5px 4px rgba(0, 0, 0, 0.1);
   padding: 20px 0;
   text-align: center;
 }
@@ -16,7 +16,7 @@ header .container-navbar {
   height: 2vh;
 }
 
-header a {
-  color: #333;
-  text-decoration: none;
+header b {
+  margin: 10px;
+  color: #050505;
 }

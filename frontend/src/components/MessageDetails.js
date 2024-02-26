@@ -1,4 +1,16 @@
 const MessageDetails = ({ message, activeChannel }) => {
+  const formatDateToFrenchLocale = (isoDateString) => {
+    // Créer un objet Date à partir de la chaîne ISO
+    const event = new Date(isoDateString);
+
+    // Retourner la date au format DD/MM/YYYY
+    return (
+      event.toLocaleDateString("fr-FR", { timeZone: "UTC" }) +
+      " " +
+      event.toLocaleTimeString("fr-FR", { timeZone: "UTC" })
+    );
+  };
+
   return (
     <div className="message">
       {message.idUser === undefined ? (
@@ -12,8 +24,8 @@ const MessageDetails = ({ message, activeChannel }) => {
       activeChannel === message.idChannel ? (
         <div>
           {" "}
-          (<i> {message.createdAt} </i>) <b> {message.idUser} </b> -{" "}
-          {message.message}{" "}
+          (<i> {formatDateToFrenchLocale(message.createdAt)} </i>){" "}
+          <b> {message.idUser} </b> - {message.message}{" "}
         </div>
       ) : (
         // place des messages server ?

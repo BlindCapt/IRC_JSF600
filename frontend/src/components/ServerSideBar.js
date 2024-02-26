@@ -1,7 +1,9 @@
+import "../css/serverSideBar.css";
+
 const ServerSideBar = ({ data }) => {
   return (
-    <div>
-      <h2>{data.title}</h2>
+    <div className="serverContainer">
+      <h3>{data.title}</h3>
     </div>
   );
 };
